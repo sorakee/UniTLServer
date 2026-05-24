@@ -1,5 +1,5 @@
 # XUnity-AutoTL-CustomTL
-Host your own Flask server locally to translate text retrieved from Unity games/applications via XUnity-Auto-Translator using a model of your own choice
+Host your own Flask server locally to translate text retrieved from Unity games/applications via [XUnity-Auto-Translator](https://github.com/bbepis/XUnity.AutoTranslator) using a model of your own choice
 I did this because default translators are so bad it makes my brain fried when I try to comprehend them.
 
 ## How to Run
