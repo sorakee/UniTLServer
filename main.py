@@ -44,7 +44,7 @@ PROVIDER_CONFIG = {
         "env_key_name": "OPENROUTER_API_KEY",
         "extra_headers": {
             "HTTP-Referer": "http://127.0.0.1:5000",
-            "X-Title": "Gemini OpenRouter Translator",
+            "X-Title": "OpenRouter Translator",
         },
     },
     "deepseek": {
@@ -93,7 +93,7 @@ HEADERS = {
 
 
 # ---------------------------------------------------------------------------
-# Translation prompt (unchanged)
+# Translation prompt
 # ---------------------------------------------------------------------------
 def create_translation_prompt(text, target_lang="en", source_lang="ja"):
     lang_names = {
@@ -109,6 +109,7 @@ def create_translation_prompt(text, target_lang="en", source_lang="ja"):
     target_name = lang_names.get(target_lang, target_lang)
     return f"""You are a professional {source_name}-to-{target_name} translator.
         Retain honorifics.
+        Preserve format or tags.
         Preserve tone, emotion and nuances when possible.
         You must return the result only.
 
@@ -117,7 +118,7 @@ def create_translation_prompt(text, target_lang="en", source_lang="ja"):
 
 
 # ---------------------------------------------------------------------------
-# Core translation function (no HTTP parameter changes)
+# Core translation function
 # ---------------------------------------------------------------------------
 def call_translation_api(prompt):
     """Calls the selected provider's chat completions endpoint."""
@@ -139,7 +140,7 @@ def call_translation_api(prompt):
 
 
 # ---------------------------------------------------------------------------
-# Routes (unchanged signatures)
+# Routes
 # ---------------------------------------------------------------------------
 @app.route("/translate", methods=["GET"])
 def translate():
